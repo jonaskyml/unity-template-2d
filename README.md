@@ -1,5 +1,10 @@
-# unity template for 2d game (urp, 1920x1080)
+# unity template for 2d game
 >you can clone this repo and do anything you like with it, have fun
+
+- reference resolution: 1920x1080
+- using urp 2d
+- post-processing included
+
 
 ## `/Assets` structure
 `/Core` | universal scripts, settings, managers usable in most of video game structures
