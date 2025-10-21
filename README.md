@@ -3,6 +3,7 @@
 
 ## directory structure
 /Core -> universal scripts, settings, managers usable in most of video game structures
+
 /Game -> game-specific scripts that need to be worked on during the development
 
 ---
