@@ -13,7 +13,7 @@ public class ManagerDontDestroyOnLoad : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // eliminates duplicates
+            Destroy(gameObject);
         }
     }
 }
