@@ -1,4 +1,4 @@
-# unity template for 2d game (urp)
+# unity template for 2d game (urp, 1920x1080)
 >you can clone this repo and do anything you like with it, have fun
 
 ## `/Assets` structure
