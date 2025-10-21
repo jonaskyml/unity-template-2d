@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/MainMenu.unity
     guid: 40065a4a60645b67395c857e4711c2ce
   - enabled: 1
+    path: Assets/Game/Scenes/Tutorial.unity
+    guid: b633ef8bb1fe4cde6b5ea5d84738219d
+  - enabled: 1
     path: Assets/Game/Scenes/Levels/Level1.unity
     guid: 6ecbf98c27c57d27988dac4dda7af7b2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/Scenes/Levels/skibii.unity
     guid: a571a4c1e0dc3318a95cf965284c7e68
   m_configObjects:

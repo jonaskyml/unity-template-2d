@@ -3,10 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public string sceneName;
+    public string startGameScene;
+    public string startTutorialScene;
 
-    public void LoadScene()
+    public void StartGame()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(startGameScene);
+    }
+
+    public void StartTutorial()
+    {
+        SceneManager.LoadScene(startTutorialScene);
     }
 }
