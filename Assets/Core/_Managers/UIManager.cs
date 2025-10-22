@@ -1,54 +1,69 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    // input
-    public InputActionReference togglePanel;
+    public static UIManager Instance { get; private set; }
 
-    // panels
+    [Header("Input")]
+    public InputActionReference togglePanel;
+    public InputActionReference closePanelSettings;
+
+    [Header("Panels")]
     public GameObject panelSettings;
-    public GameObject panelPauseMenu;
+    public GameObject panelPause;
 
     private void OnEnable()
     {
-        togglePanel.action.Enable();
+        if (togglePanel != null)
+        {
+            togglePanel.action.Enable();
+            togglePanel.action.started += OnTogglePause;
+        }
 
-        togglePanel.action.started += OnClosePanelSettings;
-        togglePanel.action.started += OnTogglePanelPauseMenu;
+        if (closePanelSettings != null )
+        {
+            closePanelSettings.action.Enable();
+            closePanelSettings.action.started += OnCloseSettings;
+        }
     }
 
     private void OnDisable()
     {
-        togglePanel.action.started -= OnClosePanelSettings;
-        togglePanel.action.started -= OnTogglePanelPauseMenu;
+        if (togglePanel != null && togglePanel.action != null)
+            togglePanel.action.started -= OnTogglePause;
 
-        togglePanel.action.Disable();
+        if (closePanelSettings != null && closePanelSettings.action != null)
+            closePanelSettings.action.started -= OnCloseSettings;
+
+        if (togglePanel != null && togglePanel.action != null)
+            togglePanel.action.Disable();
+
+        if (closePanelSettings != null && closePanelSettings.action != null)
+            closePanelSettings.action.Disable();
     }
 
-    public void OpenPanelSettings()
+    // === pause ===
+    private void OnTogglePause(InputAction.CallbackContext ctx)
     {
-        panelSettings.SetActive(true);
+        if (panelPause == null) return;
+
+        bool isActive = panelPause.activeSelf;
+        panelPause.SetActive(!isActive);
+        GameManager.Instance.TogglePause();
     }
 
-    public void ClosePanelSettings()
-    {
-        panelSettings.SetActive(false);
-    }
 
-    private void OnClosePanelSettings(InputAction.CallbackContext context)
-    {
-        if (panelSettings.activeSelf)
-        {
-            ClosePanelSettings();
-        }
-    }
+    // === settings ===
+    public void OpenSettings() => panelSettings?.SetActive(true);
+    public void CloseSettings() => panelSettings?.SetActive(false);
 
-    private void OnTogglePanelPauseMenu(InputAction.CallbackContext context)
+    private void OnCloseSettings(InputAction.CallbackContext ctx)
     {
-        bool isActive = panelPauseMenu.activeSelf;
-        panelPauseMenu.SetActive(!isActive);
+        if (panelSettings == null) return;
+        if (!panelSettings.activeSelf) return;
 
-        Time.timeScale = isActive ? 1f : 0f;
+        CloseSettings();
     }
 }

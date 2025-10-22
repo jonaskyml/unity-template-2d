@@ -199,7 +199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &114799071
 RectTransform:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &297600686
 RectTransform:
   m_ObjectHideFlags: 0
@@ -887,7 +887,6 @@ GameObject:
   m_Component:
   - component: {fileID: 679156785}
   - component: {fileID: 679156784}
-  - component: {fileID: 679156783}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -895,18 +894,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &679156783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679156782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38e6535da9b3fc7eb1cfd0033de3290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &679156784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,9 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df8b630bc2f9eed8f286e0eb52ebc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  togglePanel: {fileID: -5302081647825185614, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
-  panelSettings: {fileID: 0}
-  panelPauseMenu: {fileID: 114799070}
+  mainMenuScene: 
   startGameScene: Level1
   startTutorialScene: Tutorial
 --- !u!4 &679156785
@@ -1074,9 +1059,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 679156784}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ClosePanelSettings
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1371,6 +1356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1518437431}
   - component: {fileID: 1518437432}
+  - component: {fileID: 1518437433}
   m_Layer: 0
   m_Name: _UIManager
   m_TagString: Untagged
@@ -1403,6 +1389,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b0355ffda4c7902eb185cddb53b1628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  togglePanel: {fileID: -5302081647825185614, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
+  closePanelSettings: {fileID: -5302081647825185614, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
+  panelSettings: {fileID: 0}
+  panelPause: {fileID: 114799070}
+--- !u!114 &1518437433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518437430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38e6535da9b3fc7eb1cfd0033de3290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1536312904
@@ -1744,7 +1746,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1710225683}
-  - component: {fileID: 1710225684}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -1769,18 +1770,6 @@ Transform:
   - {fileID: 498279836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1710225684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710225682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38e6535da9b3fc7eb1cfd0033de3290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1738516794
 GameObject:
   m_ObjectHideFlags: 0
