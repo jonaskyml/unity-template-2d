@@ -571,7 +571,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ClosePanel",
+                    "name": "TogglePanel",
                     "type": "Button",
                     "id": "1d9962fb-7eca-4482-adc2-89df272101b1",
                     "expectedControlType": "",
@@ -1006,7 +1006,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "ClosePanel",
+                    "action": "TogglePanel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
