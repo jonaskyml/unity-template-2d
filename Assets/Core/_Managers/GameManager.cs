@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsPaused { get; private set; }
 
-    // scenes
+    [Header("Scenes")]
     public string mainMenuScene;
     public string startGameScene;
     public string startTutorialScene;

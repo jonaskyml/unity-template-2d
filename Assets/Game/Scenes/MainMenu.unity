@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 183507781}
   - component: {fileID: 183507780}
-  - component: {fileID: 183507779}
   m_Layer: 0
   m_Name: _UIManager
   m_TagString: Untagged
@@ -137,18 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &183507779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183507778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38e6535da9b3fc7eb1cfd0033de3290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &183507780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +180,7 @@ GameObject:
   - component: {fileID: 251700745}
   - component: {fileID: 251700744}
   - component: {fileID: 251700743}
+  - component: {fileID: 251700747}
   m_Layer: 0
   m_Name: ButtonTutorial
   m_TagString: Untagged
@@ -284,9 +272,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 797374955}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartTutorial
+      - m_Target: {fileID: 251700747}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: RequestTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -334,6 +322,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251700741}
   m_CullTransparentMesh: 1
+--- !u!114 &251700747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251700741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9403f96eb9fdd6af6adeb033ab434de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &297600685
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,6 +889,7 @@ GameObject:
   - component: {fileID: 381961663}
   - component: {fileID: 381961662}
   - component: {fileID: 381961665}
+  - component: {fileID: 381961666}
   m_Layer: 0
   m_Name: ButtonPlay
   m_TagString: Untagged
@@ -960,9 +961,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 797374955}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 381961666}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: RequestPlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1030,6 +1031,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &381961666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381961660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9403f96eb9fdd6af6adeb033ab434de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &498279833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,7 +1397,6 @@ GameObject:
   m_Component:
   - component: {fileID: 797374954}
   - component: {fileID: 797374955}
-  - component: {fileID: 797374956}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -1419,21 +1431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df8b630bc2f9eed8f286e0eb52ebc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuScene: 
+  mainMenuScene: MainMenu
   startGameScene: Level1
   startTutorialScene: Tutorial
---- !u!114 &797374956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797374953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38e6535da9b3fc7eb1cfd0033de3290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &877463168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,6 +1765,7 @@ GameObject:
   - component: {fileID: 1354670266}
   - component: {fileID: 1354670265}
   - component: {fileID: 1354670264}
+  - component: {fileID: 1354670268}
   m_Layer: 0
   m_Name: ButtonSettings
   m_TagString: Untagged
@@ -1856,9 +1857,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 183507780}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OpenSettings
+      - m_Target: {fileID: 1354670268}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: RequestOpenSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1906,6 +1907,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354670262}
   m_CullTransparentMesh: 1
+--- !u!114 &1354670268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354670262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9403f96eb9fdd6af6adeb033ab434de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1394463856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,6 +2396,7 @@ GameObject:
   - component: {fileID: 1662116350}
   - component: {fileID: 1662116349}
   - component: {fileID: 1662116348}
+  - component: {fileID: 1662116352}
   m_Layer: 0
   m_Name: ButtonCloseSettings
   m_TagString: Untagged
@@ -2474,9 +2488,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 183507780}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: CloseSettings
+      - m_Target: {fileID: 1662116352}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: RequestCloseSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2524,6 +2538,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662116346}
   m_CullTransparentMesh: 1
+--- !u!114 &1662116352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662116346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9403f96eb9fdd6af6adeb033ab434de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1707272609
 GameObject:
   m_ObjectHideFlags: 0

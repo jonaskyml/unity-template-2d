@@ -15,13 +15,18 @@ public class UIManager : MonoBehaviour
     public GameObject panelSettings;
     public GameObject panelPause;
 
-    private void Awake()
+    void Awake()
     {
-        // assign once in awake
-        TryAssignPanels();
-
-        // re-assign whenever a new scene loads
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnDestroy()
@@ -45,6 +50,16 @@ public class UIManager : MonoBehaviour
                 Debug.Log("[autoassign] found and assigned PanelPauseMenu");
             }
         }
+
+        if (panelSettings == null)
+        {
+            GameObject found = FindObjectByName("PanelSettings");
+            if (found != null)
+            {
+                panelSettings = found;
+                Debug.Log("[autoassign] found and assigned PanelSettings");
+            }
+        }
     }
 
     private GameObject FindObjectByName(string name)
@@ -66,7 +81,7 @@ public class UIManager : MonoBehaviour
             togglePanel.action.started += OnTogglePause;
         }
 
-        if (closePanelSettings != null )
+        if (closePanelSettings != null)
         {
             closePanelSettings.action.Enable();
             closePanelSettings.action.started += OnCloseSettings;
@@ -80,12 +95,12 @@ public class UIManager : MonoBehaviour
 
         if (closePanelSettings != null && closePanelSettings.action != null)
             closePanelSettings.action.started -= OnCloseSettings;
-
-        if (togglePanel != null && togglePanel.action != null)
-            togglePanel.action.Disable();
-
-        if (closePanelSettings != null && closePanelSettings.action != null)
-            closePanelSettings.action.Disable();
+        
+        // if (togglePanel != null && togglePanel.action != null)
+        //     togglePanel.action.Disable();
+        //
+        // if (closePanelSettings != null && closePanelSettings.action != null)
+        //     closePanelSettings.action.Disable();
     }
 
     // === pause ===
