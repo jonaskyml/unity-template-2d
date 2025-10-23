@@ -14,6 +14,24 @@ public class UIManager : MonoBehaviour
     public GameObject panelSettings;
     public GameObject panelPause;
 
+    private void Awake()
+    {
+        if (panelPause == null)
+        {
+            GameObject found = GameObject.Find("PanelPauseMenu");
+
+            if (found != null)
+            {
+                panelPause = found;
+                Debug.Log($"[autoassign] found and assigned");
+            }
+            else
+            {
+                Debug.LogWarning($"[autoassign] object");
+            }
+        }
+    }
+
     private void OnEnable()
     {
         if (togglePanel != null)
