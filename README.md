@@ -5,6 +5,7 @@
 - using urp 2d
 - post-processing included
 
+for now, this template focuses mainly on UI and scene management.
 
 ## `/Assets` structure
 `/Core` | universal scripts, settings, managers usable in most of video game structures
