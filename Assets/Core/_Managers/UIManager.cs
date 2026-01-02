@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance { get; private set; }
-
     [Header("Input")]
     public InputActionReference togglePanel;
     public InputActionReference closePanelSettings;
@@ -15,19 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject panelSettings;
     public GameObject panelPause;
 
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    public bool IsPaused { get; private set; }
 
     private void OnDestroy()
     {
@@ -110,7 +96,7 @@ public class UIManager : MonoBehaviour
 
         bool isActive = panelPause.activeSelf;
         panelPause.SetActive(!isActive);
-        GameManager.Instance.TogglePause();
+        Time.timeScale = IsPaused ? 0f : 1f;
     }
 
 

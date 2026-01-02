@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class MenuButton : MonoBehaviour
 {
+    private UIManager uiManager;
+
+    private void Start()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+    }
+
     public void RequestPlayGame()
     {
         GameManager.Instance.StartGame();
@@ -19,17 +26,17 @@ public class MenuButton : MonoBehaviour
 
     public void RequestOpenSettings()
     {
-        UIManager.Instance.OpenSettings();
+        uiManager?.OpenSettings();
     }
     
     public void RequestCloseSettings()
     {
-        UIManager.Instance.CloseSettings();
+        uiManager?.CloseSettings();
     }
 
     public void RequestResume()
     {
-        if (UIManager.Instance != null)
+        if (uiManager != null)
         {
             // this will depend on how is closing the pause menu handled
             GameManager.Instance.TogglePause();
